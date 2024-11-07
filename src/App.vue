@@ -7,9 +7,9 @@ import BB from './layout/header.vue'
 <template>
   <div>
     <AA></AA>
-    <div>
-      <div>菜单</div>
-      <div>
+    <div class="flex">
+      <div class="menu">菜单</div>
+      <div class="content">
         <RouterView />
       </div>
     </div>
@@ -17,4 +17,17 @@ import BB from './layout/header.vue'
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.content {
+  height: calc(100vh - 160px);
+}
+.menu {
+  width: 80px;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+}
+.flex {
+  display: flex;
+}
+</style>

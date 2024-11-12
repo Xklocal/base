@@ -1,31 +1,32 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import AA from './layout/footer.vue'
-import BB from './layout/header.vue'
+import footerBottom from './layout/footer.vue'
+import headerTop from './layout/header.vue'
+import Menu from '@/components/Menu/index.vue'
+import { ElScrollbar } from 'element-plus'
 </script>
 
 <template>
   <div>
-    <AA></AA>
-    <div class="flex">
-      <div class="menu">菜单</div>
-      <div class="content">
-        <RouterView />
+    <headerTop></headerTop>
+    <div>
+      <div class="flex">
+        <Menu mode="vertical" class="w-[180px]"></Menu>
+        <ElScrollbar class="w-[calc(100vw-180px)]">
+          <div class="content">
+            <RouterView />
+          </div>
+          <footerBottom></footerBottom>
+        </ElScrollbar>
       </div>
     </div>
-    <BB></BB>
   </div>
 </template>
 
 <style scoped>
 .content {
-  height: calc(100vh - 160px);
-}
-.menu {
-  width: 80px;
-  text-align: center;
-  background-color: #000;
-  color: #fff;
+  min-height: calc(100vh - 160px);
+  padding: 20px;
 }
 .flex {
   display: flex;
